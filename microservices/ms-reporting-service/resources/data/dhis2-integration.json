@@ -1,0 +1,196 @@
+{
+  "dhis2_integration": {
+    "enabled": true,
+    "version": "2.38+",
+    "base_url": "https://dhis2.example.org",
+    "authentication": {
+      "type": "basic_auth",
+      "username_env": "DHIS2_USERNAME",
+      "password_env": "DHIS2_PASSWORD"
+    },
+    "sync_frequency": "real-time",
+    "offline_queue": {
+      "enabled": true,
+      "retry_attempts": 3,
+      "retry_interval": "5 minutes"
+    }
+  },
+  "tracked_entity_mapping": {
+    "entity_type": "Person",
+    "attributes": [
+      {
+        "dhis2_attribute": "Patient_UID",
+        "zarish_field": "uid",
+        "required": true
+      },
+      {
+        "dhis2_attribute": "First_Name",
+        "zarish_field": "given_name",
+        "required": true
+      },
+      {
+        "dhis2_attribute": "Last_Name",
+        "zarish_field": "family_name",
+        "required": true
+      },
+      {
+        "dhis2_attribute": "Date_of_Birth",
+        "zarish_field": "date_of_birth",
+        "required": true,
+        "format": "YYYY-MM-DD"
+      },
+      {
+        "dhis2_attribute": "Gender",
+        "zarish_field": "gender",
+        "required": true,
+        "value_mapping": {
+          "male": "Male",
+          "female": "Female",
+          "other": "Other"
+        }
+      },
+      {
+        "dhis2_attribute": "Nationality",
+        "zarish_field": "nationality",
+        "required": true
+      },
+      {
+        "dhis2_attribute": "Identity_Number",
+        "zarish_field": "identity_number",
+        "required": false
+      },
+      {
+        "dhis2_attribute": "Phone_Number",
+        "zarish_field": "phone",
+        "required": false
+      }
+    ]
+  },
+  "program_mappings": [
+    {
+      "zarish_service": "OPD",
+      "dhis2_program": "Outpatient Services",
+      "dhis2_program_id": "OPD_PROGRAM_UID",
+      "events": [
+        {
+          "zarish_event": "opd_consultation",
+          "dhis2_stage": "Consultation",
+          "data_elements": [
+            {
+              "dhis2_element": "Chief_Complaint",
+              "zarish_field": "chief_complaint"
+            },
+            {
+              "dhis2_element": "Diagnosis",
+              "zarish_field": "provisional_diagnosis"
+            },
+            {
+              "dhis2_element": "ICD_Code",
+              "zarish_field": "icd_code"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "zarish_service": "MNCH",
+      "dhis2_program": "Maternal and Child Health",
+      "dhis2_program_id": "MNCH_PROGRAM_UID",
+      "events": [
+        {
+          "zarish_event": "anc_visit",
+          "dhis2_stage": "ANC Visit",
+          "data_elements": [
+            {
+              "dhis2_element": "Gestational_Age",
+              "zarish_field": "gestational_age"
+            },
+            {
+              "dhis2_element": "Blood_Pressure",
+              "zarish_field": "blood_pressure"
+            },
+            {
+              "dhis2_element": "Hemoglobin",
+              "zarish_field": "hemoglobin"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "zarish_service": "NCD",
+      "dhis2_program": "NCD Management",
+      "dhis2_program_id": "NCD_PROGRAM_UID",
+      "events": [
+        {
+          "zarish_event": "ncd_followup",
+          "dhis2_stage": "NCD Follow-up",
+          "data_elements": [
+            {
+              "dhis2_element": "Blood_Glucose",
+              "zarish_field": "fasting_glucose"
+            },
+            {
+              "dhis2_element": "HbA1c",
+              "zarish_field": "hba1c"
+            },
+            {
+              "dhis2_element": "Blood_Pressure",
+              "zarish_field": "blood_pressure"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "aggregate_reporting": {
+    "enabled": true,
+    "datasets": [
+      {
+        "name": "Monthly Service Statistics",
+        "dhis2_dataset_id": "MONTHLY_STATS_UID",
+        "frequency": "monthly",
+        "indicators": [
+          {
+            "name": "Total OPD Visits",
+            "dhis2_element": "OPD_Total",
+            "zarish_query": "COUNT encounters WHERE service_point='OPD'"
+          },
+          {
+            "name": "Total ANC Visits",
+            "dhis2_element": "ANC_Total",
+            "zarish_query": "COUNT encounters WHERE service_point='MNCH' AND type='ANC'"
+          },
+          {
+            "name": "NCD Patients",
+            "dhis2_element": "NCD_Patients",
+            "zarish_query": "COUNT DISTINCT patients WHERE service_point='NCD'"
+          }
+        ]
+      }
+    ]
+  },
+  "surveillance_reporting": {
+    "enabled": true,
+    "diseases": [
+      {
+        "name": "Acute Watery Diarrhea",
+        "icd_codes": ["A09"],
+        "dhis2_program": "Disease Surveillance",
+        "immediate_notification": true
+      },
+      {
+        "name": "Measles",
+        "icd_codes": ["B05"],
+        "dhis2_program": "Disease Surveillance",
+        "immediate_notification": true
+      },
+      {
+        "name": "COVID-19",
+        "icd_codes": ["U07.1"],
+        "dhis2_program": "Disease Surveillance",
+        "immediate_notification": true
+      }
+    ]
+  }
+}
