@@ -1,0 +1,39 @@
+{
+    "name": "@zs-health/esm-styleguide",
+    "version": "1.0.0",
+    "private": true,
+    "description": "Carbon Design components and theme for ZS Health",
+    "type": "module",
+    "main": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "exports": {
+        ".": {
+            "types": "./dist/index.d.ts",
+            "import": "./dist/index.js"
+        },
+        "./styles": "./dist/styles/index.css",
+        "./src/styles/index.css": "./src/styles/index.css"
+    },
+    "scripts": {
+        "build": "tsc && mkdir -p dist/styles && sass src/styles/index.scss dist/styles/index.css --load-path=../../node_modules",
+        "dev": "tsc --watch",
+        "lint": "eslint src/",
+        "typecheck": "tsc --noEmit",
+        "clean": "rm -rf dist"
+    },
+    "dependencies": {
+        "@carbon/react": "^1.71.0",
+        "@carbon/icons-react": "^11.52.0"
+    },
+    "peerDependencies": {
+        "react": "^19.0.0",
+        "react-dom": "^19.0.0"
+    },
+    "devDependencies": {
+        "@zs-health/typescript-config": "*",
+        "@zs-health/eslint-config": "*",
+        "@types/react": "^19.0.0",
+        "@types/react-dom": "^19.0.0",
+        "typescript": "^5.7.0"
+    }
+}

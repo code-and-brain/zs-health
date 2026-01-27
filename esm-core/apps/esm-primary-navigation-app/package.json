@@ -1,0 +1,35 @@
+{
+    "name": "@zs-health/esm-primary-navigation-app",
+    "version": "1.0.0",
+    "private": true,
+    "description": "Primary navigation bar for ZS Health",
+    "type": "module",
+    "main": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "exports": {
+        ".": {
+            "types": "./dist/index.d.ts",
+            "import": "./dist/index.js"
+        }
+    },
+    "scripts": {
+        "build": "tsc && copyfiles -u 1 src/**/*.css dist/",
+        "dev": "tsc --watch & copyfiles -u 1 -w src/**/*.css dist/",
+        "lint": "eslint src/",
+        "typecheck": "tsc --noEmit",
+        "clean": "rm -rf dist"
+    },
+    "dependencies": {
+        "@zs-health/esm-framework": "*"
+    },
+    "peerDependencies": {
+        "react": "^19.0.0"
+    },
+    "devDependencies": {
+        "@types/react": "^19.0.0",
+        "@zs-health/eslint-config": "*",
+        "@zs-health/typescript-config": "*",
+        "copyfiles": "^2.4.1",
+        "typescript": "^5.7.0"
+    }
+}

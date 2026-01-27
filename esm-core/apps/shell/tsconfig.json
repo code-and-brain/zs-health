@@ -1,0 +1,15 @@
+{
+    "extends": "@zs-health/typescript-config/vite.json",
+    "compilerOptions": {
+        "baseUrl": ".",
+        "paths": {
+            "@/*": [
+                "src/*"
+            ]
+        }
+    },
+    "include": [
+        "src/**/*",
+        "vite.config.ts"
+    ]
+}

@@ -1,0 +1,55 @@
+{
+    "compilerOptions": {
+        "baseUrl": ".",
+        "paths": {
+            "@zs-health/typescript-config/*": [
+                "configs/typescript-config/*"
+            ],
+            "@zs-health/eslint-config/*": [
+                "configs/eslint-config/*"
+            ],
+            "@zs-health/esm-api": [
+                "packages/esm-api/src/index.ts"
+            ],
+            "@zs-health/esm-config": [
+                "packages/esm-config/src/index.ts"
+            ],
+            "@zs-health/esm-error-handling": [
+                "packages/esm-error-handling/src/index.tsx"
+            ],
+            "@zs-health/esm-extensions": [
+                "packages/esm-extensions/src/index.ts"
+            ],
+            "@zs-health/esm-framework": [
+                "packages/esm-framework/src/index.ts"
+            ],
+            "@zs-health/esm-navigation": [
+                "packages/esm-navigation/src/index.tsx"
+            ],
+            "@zs-health/esm-react-utils": [
+                "packages/esm-react-utils/src/index.ts"
+            ],
+            "@zs-health/esm-state": [
+                "packages/esm-state/src/index.ts"
+            ],
+            "@zs-health/esm-styleguide": [
+                "packages/esm-styleguide/src/index.ts"
+            ],
+            "@zs-health/esm-translations": [
+                "packages/esm-translations/src/index.ts"
+            ],
+            "@zs-health/esm-home-app": [
+                "apps/esm-home-app/src/index.ts"
+            ],
+            "@zs-health/esm-login-app": [
+                "apps/esm-login-app/src/index.ts"
+            ],
+            "@zs-health/esm-primary-navigation-app": [
+                "apps/esm-primary-navigation-app/src/index.ts"
+            ],
+            "@zs-health/shell": [
+                "apps/shell/src/main.tsx"
+            ]
+        }
+    }
+}

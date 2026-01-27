@@ -1,0 +1,81 @@
+/* ZS Health Shell - Global Styles */
+@import '@zs-health/esm-styleguide/styles';
+
+/* App-specific styles */
+:root {
+    --zs-header-height: 48px;
+    --zs-sidebar-width: 256px;
+    --zs-sidebar-collapsed-width: 48px;
+}
+
+/* Layout */
+.zs-app {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.zs-app-layout {
+    display: flex;
+    flex: 1;
+    padding-top: var(--zs-header-height);
+}
+
+.zs-main-content {
+    flex: 1;
+    padding: var(--zs-spacing-05);
+    background-color: var(--zs-color-layer-01);
+    overflow-y: auto;
+}
+
+.zs-main-content--with-sidebar {
+    margin-left: var(--zs-sidebar-width);
+}
+
+.zs-main-content--sidebar-collapsed {
+    margin-left: var(--zs-sidebar-collapsed-width);
+}
+
+/* Loading States */
+.zs-loading-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: var(--zs-color-background);
+}
+
+.zs-loading-content {
+    text-align: center;
+}
+
+.zs-loading-content h2 {
+    margin-top: var(--zs-spacing-05);
+    color: var(--zs-color-text-primary);
+}
+
+/* Error fallback */
+.zs-error-fallback {
+    max-width: 600px;
+    margin: var(--zs-spacing-09) auto;
+    padding: var(--zs-spacing-05);
+}
+
+.zs-error-actions {
+    display: flex;
+    gap: var(--zs-spacing-03);
+    margin-top: var(--zs-spacing-05);
+}
+
+.zs-error-details {
+    margin-top: var(--zs-spacing-05);
+    padding: var(--zs-spacing-03);
+    background: var(--zs-color-layer-01);
+    border-radius: var(--zs-radius-md);
+}
+
+.zs-error-details pre {
+    margin: var(--zs-spacing-03) 0 0;
+    font-size: var(--zs-font-size-xs);
+    overflow-x: auto;
+}

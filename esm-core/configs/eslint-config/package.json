@@ -1,0 +1,22 @@
+{
+    "name": "@zs-health/eslint-config",
+    "version": "1.0.0",
+    "private": true,
+    "description": "Shared ESLint configurations for ZS Health",
+    "main": "index.js",
+    "type": "module",
+    "files": [
+        "*.js"
+    ],
+    "dependencies": {
+        "@typescript-eslint/eslint-plugin": "^8.0.0",
+        "@typescript-eslint/parser": "^8.0.0",
+        "eslint-plugin-react": "^7.37.0",
+        "eslint-plugin-react-hooks": "^5.0.0",
+        "eslint-plugin-import": "^2.31.0"
+    },
+    "peerDependencies": {
+        "eslint": "^9.0.0",
+        "typescript": "^5.0.0"
+    }
+}

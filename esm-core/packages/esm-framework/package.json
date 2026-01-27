@@ -1,0 +1,44 @@
+{
+    "name": "@zs-health/esm-framework",
+    "version": "1.0.0",
+    "private": true,
+    "description": "Main framework entry point for ZS Health - re-exports all packages",
+    "type": "module",
+    "main": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "exports": {
+        ".": {
+            "types": "./dist/index.d.ts",
+            "import": "./dist/index.js"
+        }
+    },
+    "scripts": {
+        "build": "tsc",
+        "dev": "tsc --watch",
+        "lint": "eslint src/",
+        "typecheck": "tsc --noEmit",
+        "clean": "rm -rf dist"
+    },
+    "dependencies": {
+        "@zs-health/esm-config": "*",
+        "@zs-health/esm-api": "*",
+        "@zs-health/esm-state": "*",
+        "@zs-health/esm-styleguide": "*",
+        "@zs-health/esm-react-utils": "*",
+        "@zs-health/esm-navigation": "*",
+        "@zs-health/esm-error-handling": "*",
+        "@zs-health/esm-translations": "*",
+        "@zs-health/esm-extensions": "*"
+    },
+    "peerDependencies": {
+        "react": "^19.0.0",
+        "react-dom": "^19.0.0"
+    },
+    "devDependencies": {
+        "@zs-health/typescript-config": "*",
+        "@zs-health/eslint-config": "*",
+        "@types/react": "^19.0.0",
+        "@types/react-dom": "^19.0.0",
+        "typescript": "^5.7.0"
+    }
+}

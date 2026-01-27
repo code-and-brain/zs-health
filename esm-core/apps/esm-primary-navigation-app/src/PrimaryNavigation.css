@@ -1,0 +1,46 @@
+/* Primary Navigation Styles */
+.zs-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: var(--zs-z-fixed);
+}
+
+.zs-header-logo {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    margin-right: var(--zs-spacing-02);
+}
+
+.zs-header-logo svg {
+    width: 100%;
+    height: 100%;
+}
+
+.zs-header-nav {
+    display: none;
+}
+
+@media (min-width: 1056px) {
+    .zs-header-nav {
+        display: flex;
+    }
+
+    .zs-menu-toggle {
+        display: none;
+    }
+}
+
+.zs-sidenav {
+    position: fixed;
+    top: 48px;
+    left: 0;
+    bottom: 0;
+    z-index: var(--zs-z-sticky);
+    background: var(--zs-color-background);
+    border-right: 1px solid var(--zs-color-border);
+}

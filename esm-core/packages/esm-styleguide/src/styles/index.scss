@@ -1,0 +1,210 @@
+/* ZS Health Styleguide - Global Styles */
+
+/* Import Carbon styles */
+@import '@carbon/react/scss/reset';
+@import '@carbon/react/scss/grid/index.scss';
+@import '@carbon/react/scss/type/index.scss';
+@import '@carbon/react/scss/themes';
+@import '@carbon/react/scss/theme';
+
+/* ZS Health CSS Custom Properties */
+:root {
+  /* Primary Colors */
+  --zs-color-primary: #0f62fe;
+  --zs-color-primary-hover: #0353e9;
+  --zs-color-primary-active: #002d9c;
+
+  /* Secondary Colors */
+  --zs-color-secondary: #393939;
+  --zs-color-secondary-hover: #4c4c4c;
+
+  /* Status Colors */
+  --zs-color-success: #24a148;
+  --zs-color-warning: #f1c21b;
+  --zs-color-danger: #da1e28;
+  --zs-color-info: #0043ce;
+
+  /* Background Colors */
+  --zs-color-background: #ffffff;
+  --zs-color-background-hover: #e8e8e8;
+  --zs-color-background-selected: #e0e0e0;
+  --zs-color-layer-01: #f4f4f4;
+  --zs-color-layer-02: #ffffff;
+
+  /* Text Colors */
+  --zs-color-text-primary: #161616;
+  --zs-color-text-secondary: #525252;
+  --zs-color-text-placeholder: #a8a8a8;
+  --zs-color-text-on-color: #ffffff;
+  --zs-color-text-disabled: #c6c6c6;
+
+  /* Border Colors */
+  --zs-color-border: #e0e0e0;
+  --zs-color-border-strong: #8d8d8d;
+  --zs-color-border-focus: #0f62fe;
+
+  /* Spacing Scale */
+  --zs-spacing-01: 0.125rem;
+  /* 2px */
+  --zs-spacing-02: 0.25rem;
+  /* 4px */
+  --zs-spacing-03: 0.5rem;
+  /* 8px */
+  --zs-spacing-04: 0.75rem;
+  /* 12px */
+  --zs-spacing-05: 1rem;
+  /* 16px */
+  --zs-spacing-06: 1.5rem;
+  /* 24px */
+  --zs-spacing-07: 2rem;
+  /* 32px */
+  --zs-spacing-08: 2.5rem;
+  /* 40px */
+  --zs-spacing-09: 3rem;
+  /* 48px */
+
+  /* Typography */
+  --zs-font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --zs-font-size-xs: 0.75rem;
+  --zs-font-size-sm: 0.875rem;
+  --zs-font-size-base: 1rem;
+  --zs-font-size-lg: 1.25rem;
+  --zs-font-size-xl: 1.5rem;
+  --zs-font-size-2xl: 2rem;
+  --zs-font-size-3xl: 2.5rem;
+
+  /* Border Radius */
+  --zs-radius-sm: 2px;
+  --zs-radius-md: 4px;
+  --zs-radius-lg: 8px;
+  --zs-radius-xl: 16px;
+  --zs-radius-full: 9999px;
+
+  /* Shadows */
+  --zs-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --zs-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --zs-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --zs-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+
+  /* Transitions */
+  --zs-transition-fast: 110ms;
+  --zs-transition-base: 150ms;
+  --zs-transition-slow: 240ms;
+
+  /* Z-index Scale */
+  --zs-z-dropdown: 100;
+  --zs-z-sticky: 200;
+  --zs-z-fixed: 300;
+  --zs-z-modal-backdrop: 400;
+  --zs-z-modal: 500;
+  --zs-z-popover: 600;
+  --zs-z-tooltip: 700;
+}
+
+/* Dark Theme */
+[data-theme='dark'],
+.zs-theme-dark {
+  --zs-color-background: #161616;
+  --zs-color-background-hover: #353535;
+  --zs-color-background-selected: #393939;
+  --zs-color-layer-01: #262626;
+  --zs-color-layer-02: #393939;
+  --zs-color-text-primary: #f4f4f4;
+  --zs-color-text-secondary: #c6c6c6;
+  --zs-color-border: #393939;
+  --zs-color-border-strong: #6f6f6f;
+}
+
+/* Base Styles */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--zs-font-family);
+  font-size: var(--zs-font-size-base);
+  line-height: 1.5;
+  color: var(--zs-color-text-primary);
+  background-color: var(--zs-color-background);
+}
+
+/* Focus Styles */
+:focus-visible {
+  outline: 2px solid var(--zs-color-border-focus);
+  outline-offset: 2px;
+}
+
+/* Utility Classes */
+.zs-visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.zs-text-center {
+  text-align: center;
+}
+
+.zs-text-left {
+  text-align: left;
+}
+
+.zs-text-right {
+  text-align: right;
+}
+
+.zs-flex {
+  display: flex;
+}
+
+.zs-flex-col {
+  flex-direction: column;
+}
+
+.zs-items-center {
+  align-items: center;
+}
+
+.zs-justify-center {
+  justify-content: center;
+}
+
+.zs-justify-between {
+  justify-content: space-between;
+}
+
+.zs-gap-1 {
+  gap: var(--zs-spacing-01);
+}
+
+.zs-gap-2 {
+  gap: var(--zs-spacing-02);
+}
+
+.zs-gap-3 {
+  gap: var(--zs-spacing-03);
+}
+
+.zs-gap-4 {
+  gap: var(--zs-spacing-04);
+}
+
+.zs-gap-5 {
+  gap: var(--zs-spacing-05);
+}
